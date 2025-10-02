@@ -3,7 +3,7 @@ name: Docker Build
 on:
   push:
     branches:
-      - main  # Run workflow when code is pushed to "main" branch
+      - main # Run workflow when code is pushed to "main" branch
 
 jobs:
   build:
@@ -21,3 +21,7 @@ jobs:
 
       - name: Run Docker container
         run: docker run my-node-app
+        
+      - name: Run a one-line script
+        run: echo "✅ GitHub Actions is working with my change!"
+
