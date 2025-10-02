@@ -3,10 +3,10 @@ name: Test & Docker Build
 on:
   push:
     branches:
-      - main # Trigger workflow when pushing to main branch
+      - main
   pull_request:
     branches:
-      - main # Trigger on PR to main
+      - main
 
 jobs:
   build-and-test:
@@ -23,9 +23,9 @@ jobs:
         with:
           node-version: "18"
 
-      # 3️⃣ Install dependencies
+      # 3️⃣ Install dependencies (with devDependencies)
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       # 4️⃣ Run Jest tests
       - name: Run Jest tests
@@ -43,6 +43,6 @@ jobs:
       - name: Run Docker container
         run: docker run --rm my-node-app
 
-      # 8️⃣ Optional: simple confirmation
+      # 8️⃣ Success confirmation
       - name: Success message
         run: echo "Workflow completed successfully!"
