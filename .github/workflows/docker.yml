@@ -12,7 +12,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
+      # ✅ Setup Node.js BEFORE running tests
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
       - name: Run tests
         run: node test.js
 
